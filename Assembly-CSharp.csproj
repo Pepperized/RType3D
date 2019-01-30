@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_MK\MKGlowFree\MKGlowFree.cs" />
-    <Compile Include="Assets\DestroyAfterSeconds.cs" />
+    <Compile Include="Assets\BulletInfo.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
@@ -70,13 +70,16 @@
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
-    <Compile Include="Assets\MoveBasic.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
-    <Compile Include="Assets\SceneManagerScript.cs" />
+    <Compile Include="Assets\EnemyFighter.cs" />
+    <Compile Include="Assets\EnemyHurtbox.cs" />
+    <Compile Include="Assets\Scripts\DestroyAfterSeconds.cs" />
+    <Compile Include="Assets\Scripts\MoveBasic.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\SceneManagerScript.cs" />
+    <Compile Include="Assets\Scripts\ThrusterController.cs" />
+    <Compile Include="Assets\Scripts\ViewManager.cs" />
     <Compile Include="Assets\Stagit\SkyboxEarthPlanets\script\skyboxspace_demo_v1.cs" />
     <Compile Include="Assets\Stagit\SkyboxEarthPlanets\script\skyboxspace_mouselook_v1.cs" />
-    <Compile Include="Assets\ThrusterController.cs" />
-    <Compile Include="Assets\ViewManager.cs" />
     <None Include="Assets\_MK\MKGlowFree\Shader\Variants_SelectiveMode\Illumin\MK_Illumin-Glossy.shader" />
     <None Include="Assets\_MK\MKGlowFree\Shader\Render\MKGlowBlurInc.cginc" />
     <None Include="Assets\_MK\MKGlowFree\Shader\Variants_SelectiveMode\Cutout\MK_Cutout-Glossy.shader" />
