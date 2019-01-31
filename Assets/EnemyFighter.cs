@@ -9,11 +9,12 @@ public class EnemyFighter : MonoBehaviour
     public float devianceRate = 4;
     public float devianceMultiplier = 10;
     public float speed = 5;
+    public float rotationSpeed = 250;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.position += Vector3.right * pathDevianceX.Evaluate(devianceOffset) * devianceMultiplier;
     }
 
     // Update is called once per frame
@@ -23,5 +24,9 @@ public class EnemyFighter : MonoBehaviour
         Debug.Log(evaluated);
         transform.position += Vector3.back * Time.deltaTime * speed;
         transform.position += Vector3.right * evaluated * speed * Time.deltaTime;
+        Vector3 newRot = transform.rotation.eulerAngles;
+        newRot.z += Time.deltaTime * rotationSpeed;
+        transform.rotation = Quaternion.Euler(newRot);
+
     }
 }

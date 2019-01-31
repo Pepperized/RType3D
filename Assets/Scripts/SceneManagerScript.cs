@@ -46,14 +46,12 @@ public class SceneManagerScript : MonoBehaviour
     }
 
     private float frombehindtime = 10.0f;
-    private float sideTime = 15;
+    private float sideTime = 20;
 
     // Update is called once per frame
     void Update()
     {
-        PlayerPerspective = startPerspective;
 
-        /*
         if (Time.time > sideTime)
         {
             PlayerPerspective = PlayerPerspective.Side;
@@ -61,6 +59,6 @@ public class SceneManagerScript : MonoBehaviour
         } else if (Time.time > frombehindtime)
         {
             PlayerPerspective = PlayerPerspective.FromBehind;
-        }*/
+        }
     }
 }
