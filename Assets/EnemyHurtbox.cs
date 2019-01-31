@@ -6,6 +6,7 @@ public class EnemyHurtbox : MonoBehaviour
 {
     public float maxHP = 10;
 
+    public GameObject OnDeathEffect;
 
     private float hp;
 
@@ -40,11 +41,14 @@ public class EnemyHurtbox : MonoBehaviour
         {
             float damage = other.GetComponent<BulletInfo>().damage;
             HP -= damage;
+            Destroy(other.gameObject);
         }
     }
 
     private void OnDeath()
     {
+        GameObject particle = Instantiate(OnDeathEffect, transform.position, Quaternion.identity);
+        Destroy(particle, 5);
         Destroy(gameObject);
     }
 }

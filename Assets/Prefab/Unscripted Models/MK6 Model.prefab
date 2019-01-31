@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5793862954602725239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008, y: -0.056, z: 5.318}
+  m_LocalPosition: {x: -0.043, y: -0.056, z: 5.897}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7571148061165598194}
@@ -4845,7 +4845,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: c77e7889537b9734ba56081e8677111d, type: 3}
       propertyPath: m_Name
-      value: MK6_OBJ
+      value: MK6 Model
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c77e7889537b9734ba56081e8677111d, type: 3}
       propertyPath: m_LocalPosition.x
