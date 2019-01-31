@@ -18,5 +18,8 @@ public class Level1Sequence : MonoBehaviour
         group1.SetActive(true);
         yield return new WaitForSeconds(2);
         group2.SetActive(true);
+        yield return new WaitForSeconds(5);
+        SceneManagerScript.instance.PlayerPerspective = PlayerPerspective.FromBehind;
+
     }
 }

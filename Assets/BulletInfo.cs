@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletInfo : MonoBehaviour
 {
     public float damage;
+    public bool destroyOnHit = true;
     public bool hasHitEffect = false;
     public GameObject hitEffect;
 

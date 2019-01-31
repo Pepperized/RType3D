@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,8 +10,14 @@ public class PlayerController : MonoBehaviour
     public float rotSpeed = 1;
     public float fireDelay = 0.5f;
     public AudioSource shotSFX;
+    public AudioSource chargingSFX;
+    public AudioSource chargedShotSFX;
     public Transform cannon;
+    public Slider chargeMeter;
     public GameObject shotPrefab;
+    public GameObject chargedShotPrefab;
+    public GameObject chargingEffect;
+    public float chargeRate = 5;
 
     public Vector3 fromBehindPos;
 
@@ -56,16 +63,10 @@ public class PlayerController : MonoBehaviour
                     break;
             }
 
+            Shot();
 
-            if (Input.GetAxis("Fire1") > 0 && tToNextShot <= 0)
-            {
-                shotSFX.Play();
-                tToNextShot = fireDelay;
-                Transform bullet = Instantiate(shotPrefab, cannon.position, cannon.rotation).transform;
-                bullet.GetComponent<MoveBasic>().direction = cannon.up;
-            }
-
-            tToNextShot -= Time.deltaTime;
+            ChargedShot();
+           
         } else
         {
             float timeFromStart = Time.time - startTime;
@@ -79,6 +80,44 @@ public class PlayerController : MonoBehaviour
             {
                 overridingControl = false;
             }
+        }
+    }
+
+    void Shot()
+    {
+        if (Input.GetAxis("Fire1") > 0 && tToNextShot <= 0)
+        {
+            shotSFX.Play();
+            tToNextShot = fireDelay;
+            Transform bullet = Instantiate(shotPrefab, cannon.position, cannon.rotation).transform;
+            bullet.GetComponent<MoveBasic>().direction = cannon.up;
+        }
+
+        tToNextShot -= Time.deltaTime;
+    }
+
+    private float charge = 0;
+    private float chargeMax = 10;
+
+    void ChargedShot()
+    {
+        chargeMeter.value = charge / chargeMax;
+
+        if (Input.GetAxisRaw("Fire2") > 0)
+        {
+            chargingEffect.SetActive(true);
+            if (charge == 0) chargingSFX.Play();
+            charge += Time.deltaTime * chargeRate;
+            if (charge > chargeMax) charge = chargeMax;
+        } else if (charge >= chargeMax)
+        {
+            chargedShotSFX.Play();
+            Transform bullet = Instantiate(chargedShotPrefab, cannon.position, cannon.rotation).transform;
+            charge = 0;
+        } else
+        {
+            chargingEffect.SetActive(false);
+            charge = 0;
         }
     }
 

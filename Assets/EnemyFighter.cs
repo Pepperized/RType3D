@@ -21,7 +21,6 @@ public class EnemyFighter : MonoBehaviour
     void Update()
     {
         float evaluated = pathDevianceX.Evaluate((Time.time * devianceRate) + devianceOffset) * devianceMultiplier;
-        Debug.Log(evaluated);
         transform.position += Vector3.back * Time.deltaTime * speed;
         transform.position += Vector3.right * evaluated * speed * Time.deltaTime;
         Vector3 newRot = transform.rotation.eulerAngles;

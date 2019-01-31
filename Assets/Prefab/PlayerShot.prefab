@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 1}
-  speed: 100
+  speed: 80
 --- !u!114 &6887576007121322786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  destroyOnHit: 1
   hasHitEffect: 1
   hitEffect: {fileID: 152671624298061277, guid: ba0aba32faa12594697227f894159ff3,
     type: 3}

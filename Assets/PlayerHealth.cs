@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     private Transform children;
     private CapsuleCollider collider;
+    private PlayerController controls;
 
     private float HP
     {
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controls = transform.GetComponent<PlayerController>();
         collider = transform.GetComponent<CapsuleCollider>();
         children = transform.Find("Children");
         HP = maxHP;
@@ -50,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
     void OnDeath()
     {
         collider.enabled = false;
+        controls.enabled = false;
         children.gameObject.SetActive(false);
         GameObject particle = Instantiate(destroyEffect, transform.position, Quaternion.identity);
         destroySFX.Play();

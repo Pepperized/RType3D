@@ -40,9 +40,9 @@ public class EnemyHurtbox : MonoBehaviour
     {
         if (other.tag == "PlayerBullet")
         {
-            float damage = other.GetComponent<BulletInfo>().damage;
-            HP -= damage;
-            Destroy(other.gameObject);
+            BulletInfo info = other.GetComponent<BulletInfo>();
+            HP -= info.damage;
+            if (info.destroyOnHit) Destroy(other.gameObject);
         }
     }
 
