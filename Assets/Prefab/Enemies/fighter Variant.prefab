@@ -84,7 +84,7 @@ MonoBehaviour:
     m_PreInfinity: 1
     m_PostInfinity: 1
     m_RotationOrder: 4
-  devianceOffset: 0
+  devianceOffset: 0.25
   devianceRate: 1
   devianceMultiplier: 10
   speed: 7
@@ -104,6 +104,7 @@ MonoBehaviour:
   maxHP: 10
   OnDeathEffect: {fileID: 1817919788708444815, guid: e1e89c8ca2869084f8b9ad207f1f810a,
     type: 3}
+  OnDeathSFX: {fileID: 0}
 --- !u!1001 &1105158994346089546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 7383126443870412064, guid: a1a550344bfa0d5468637a964c8632f1,
         type: 3}
       propertyPath: m_Name
-      value: fighter Variant
+      value: fighter
       objectReference: {fileID: 0}
     - target: {fileID: 7383126443870412064, guid: a1a550344bfa0d5468637a964c8632f1,
         type: 3}
@@ -134,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 7383126443870896384, guid: a1a550344bfa0d5468637a964c8632f1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 34.5
+      value: 36.35
       objectReference: {fileID: 0}
     - target: {fileID: 7383126443870896384, guid: a1a550344bfa0d5468637a964c8632f1,
         type: 3}

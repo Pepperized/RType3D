@@ -44,21 +44,4 @@ public class SceneManagerScript : MonoBehaviour
         instance = this;
         RenderSettings.skybox.SetFloat("_Rotation", SkyboxRotation);
     }
-
-    private float frombehindtime = 10.0f;
-    private float sideTime = 20;
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (Time.time > sideTime)
-        {
-            PlayerPerspective = PlayerPerspective.Side;
-            frombehindtime = 20;
-        } else if (Time.time > frombehindtime)
-        {
-            PlayerPerspective = PlayerPerspective.FromBehind;
-        }
-    }
 }

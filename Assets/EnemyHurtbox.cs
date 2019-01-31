@@ -7,6 +7,7 @@ public class EnemyHurtbox : MonoBehaviour
     public float maxHP = 10;
 
     public GameObject OnDeathEffect;
+    public AudioSource OnDeathSFX;
 
     private float hp;
 
@@ -48,6 +49,7 @@ public class EnemyHurtbox : MonoBehaviour
     private void OnDeath()
     {
         GameObject particle = Instantiate(OnDeathEffect, transform.position, Quaternion.identity);
+        OnDeathSFX.Play();
         Destroy(particle, 5);
         Destroy(gameObject);
     }

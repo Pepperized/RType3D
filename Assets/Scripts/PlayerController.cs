@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float rotSpeed = 1;
     public float fireDelay = 0.5f;
+    public AudioSource shotSFX;
     public Transform cannon;
     public GameObject shotPrefab;
 
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetAxis("Fire1") > 0 && tToNextShot <= 0)
             {
+                shotSFX.Play();
                 tToNextShot = fireDelay;
                 Transform bullet = Instantiate(shotPrefab, cannon.position, cannon.rotation).transform;
                 bullet.GetComponent<MoveBasic>().direction = cannon.up;

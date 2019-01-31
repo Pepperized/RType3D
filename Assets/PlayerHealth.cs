@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private float hp;
     public int collisionLayer = 10;
     public GameObject destroyEffect;
+    public AudioSource destroySFX;
 
     private Transform children;
     private CapsuleCollider collider;
@@ -51,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         collider.enabled = false;
         children.gameObject.SetActive(false);
         GameObject particle = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        destroySFX.Play();
         Destroy(particle, 5);
     }
 }
