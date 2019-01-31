@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public float overrideDuration = 1;
 
+    private Transform me;
     private float tToNextShot = 0;
     private bool overridingControl = false;
     private float overrideUntil = 0;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        me = transform;
         defaultRot = transform.rotation;
         SceneManagerScript.instance.PerspectiveChanged += ChangePerspective;
     }
@@ -74,8 +76,8 @@ public class PlayerController : MonoBehaviour
             if (percentage >= 0 && percentage <= 1)
             {
 
-                transform.position = Vector3.Lerp(startPos, endPos, percentage);
-                transform.rotation = Quaternion.Slerp(startRot, defaultRot, percentage);
+                me.position = Vector3.Lerp(startPos, endPos, percentage);
+                me.rotation = Quaternion.Slerp(startRot, defaultRot, percentage);
             } else if (percentage > 1)
             {
                 overridingControl = false;
@@ -126,27 +128,27 @@ public class PlayerController : MonoBehaviour
         Vector3 rotationTarget = new Vector3();
         rotationTarget.y = -90;
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && transform.position.x < 65)
+        if (Input.GetAxisRaw("Horizontal") > 0 && me.position.x < 65)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            me.position += Vector3.right * speed * Time.deltaTime;
             rotationTarget.x = -25;
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0 && transform.position.x > -65)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && me.position.x > -65)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            me.position += Vector3.left * speed * Time.deltaTime;
             rotationTarget.x = 25;
         }
-        if (Input.GetAxisRaw("Vertical") > 0 && transform.position.z < 45)
+        if (Input.GetAxisRaw("Vertical") > 0 && me.position.z < 45)
         {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
+            me.position += Vector3.forward * speed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw("Vertical") < 0 && transform.position.z > -24)
+        else if (Input.GetAxisRaw("Vertical") < 0 && me.position.z > -24)
         {
-            transform.position += Vector3.back * speed * Time.deltaTime;
+            me.position += Vector3.back * speed * Time.deltaTime;
         }
 
         Quaternion targetQuat = Quaternion.Euler(rotationTarget);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetQuat, Time.deltaTime * rotSpeed);
+        me.rotation = Quaternion.RotateTowards(me.rotation, targetQuat, Time.deltaTime * rotSpeed);
     }
 
     void SideUpdate()
@@ -154,25 +156,25 @@ public class PlayerController : MonoBehaviour
         Vector3 rotationTarget = new Vector3();
         rotationTarget.y = -90;
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && transform.position.z < 115)
+        if (Input.GetAxisRaw("Horizontal") > 0 && me.position.z < 115)
         {
-            transform.position += Vector3.forward * speed * Time.deltaTime;
+            me.position += Vector3.forward * speed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0 && transform.position.z > -22)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && me.position.z > -22)
         {
-            transform.position += Vector3.back * speed * Time.deltaTime;
+            me.position += Vector3.back * speed * Time.deltaTime;
         }
-        if (Input.GetAxisRaw("Vertical") > 0 && transform.position.y < 52)
+        if (Input.GetAxisRaw("Vertical") > 0 && me.position.y < 52)
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            me.position += Vector3.up * speed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw("Vertical") < 0 && transform.position.y > -22)
+        else if (Input.GetAxisRaw("Vertical") < 0 && me.position.y > -22)
         {
-            transform.position += Vector3.down * speed * Time.deltaTime;
+            me.position += Vector3.down * speed * Time.deltaTime;
         }
 
         Quaternion targetQuat = Quaternion.Euler(rotationTarget);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetQuat, Time.deltaTime * rotSpeed);
+        me.rotation = Quaternion.RotateTowards(me.rotation, targetQuat, Time.deltaTime * rotSpeed);
     }
 
     void FromBehindUpdate()
@@ -180,27 +182,27 @@ public class PlayerController : MonoBehaviour
         Vector3 rotationTarget = new Vector3();
         rotationTarget.y = -90;
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && transform.position.x < 14)
+        if (Input.GetAxisRaw("Horizontal") > 0 && me.position.x < 14)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
+            me.position += Vector3.right * speed * Time.deltaTime;
             rotationTarget.x = -25;
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0 && transform.position.x > -10)
+        else if (Input.GetAxisRaw("Horizontal") < 0 && me.position.x > -10)
         {
-            transform.position += Vector3.left * speed * Time.deltaTime;
+            me.position += Vector3.left * speed * Time.deltaTime;
             rotationTarget.x = 25;
         }
-        if (Input.GetAxisRaw("Vertical") > 0 && transform.position.y < 12)
+        if (Input.GetAxisRaw("Vertical") > 0 && me.position.y < 12)
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            me.position += Vector3.up * speed * Time.deltaTime;
         }
-        else if (Input.GetAxisRaw("Vertical") < 0 && transform.position.y > 0)
+        else if (Input.GetAxisRaw("Vertical") < 0 && me.position.y > 0)
         {
-            transform.position += Vector3.down * speed * Time.deltaTime;
+            me.position += Vector3.down * speed * Time.deltaTime;
         }
 
         Quaternion targetQuat = Quaternion.Euler(rotationTarget);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetQuat, Time.deltaTime * rotSpeed);
+        me.rotation = Quaternion.RotateTowards(me.rotation, targetQuat, Time.deltaTime * rotSpeed);
     }
 
     void ChangePerspective(object sender, EventArgs e)
@@ -209,9 +211,9 @@ public class PlayerController : MonoBehaviour
         overrideUntil = Time.time + overrideDuration;
             startTime = Time.time;
             
-            startPos = transform.position;
+            startPos = me.position;
             endPos = fromBehindPos;
-            startRot = transform.rotation;
+            startRot = me.rotation;
     }
 }
 

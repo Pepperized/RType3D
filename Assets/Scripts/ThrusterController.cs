@@ -12,17 +12,20 @@ public class ThrusterController : MonoBehaviour
     public GameObject UpThruster1;
     public GameObject UpThruster2;
 
+    private Transform me;
+
     // Start is called before the first frame update
     void Start()
     {
+        me = transform;
         previous = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        velocity = (transform.position - previous) / Time.deltaTime;
-        previous = transform.position;
+        velocity = (me.position - previous) / Time.deltaTime;
+        previous = me.position;
 
         if (velocity.y > 0)
         {
