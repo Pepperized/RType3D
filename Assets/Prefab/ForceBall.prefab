@@ -5785,6 +5785,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  forceShot: {fileID: 5316737211644525918, guid: bf7a1134e5f6fd24584f95c96b846664,
+    type: 3}
+  fireDelay: 0.05
 --- !u!54 &830242972
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MKDemoMat12View1
+  m_Name: PlayerShot
   m_Shader: {fileID: 4800000, guid: 3f387b3c7760d5a488b5596b42425701, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -36,6 +36,6 @@ Material:
     - _MKGlowPower: 1.3839285
     - _MKGlowTexStrength: 10
     m_Colors:
-    - _Color: {r: 1, g: 0.9982565, b: 0, a: 1}
-    - _MKGlowColor: {r: 0.99285436, g: 1, b: 0, a: 1}
-    - _MKGlowTexColor: {r: 1, g: 0.97479534, b: 0, a: 1}
+    - _Color: {r: 0, g: 1, b: 0.98118925, a: 1}
+    - _MKGlowColor: {r: 0, g: 0.7931032, b: 1, a: 1}
+    - _MKGlowTexColor: {r: 0, g: 1, b: 0.9172416, a: 1}

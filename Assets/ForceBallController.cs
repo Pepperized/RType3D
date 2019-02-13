@@ -5,10 +5,14 @@ using UnityEngine;
 public class ForceBallController : MonoBehaviour
 {
     public float speed = 5;
+    public GameObject forceShot;
+    public float fireDelay = 0.5f;
 
     GameObject level1parts;
     GameObject level2parts;
     GameObject level3parts;
+
+    private float tToNextShot = 0;
 
     bool isAttached = false;
     bool isRequested = true;
@@ -87,6 +91,30 @@ public class ForceBallController : MonoBehaviour
                 me.position = Vector3.MoveTowards(me.position, pos, Time.fixedDeltaTime * speed);
             }
         }
+
+        if (Input.GetAxisRaw("Fire1") > 0 && Input.GetAxisRaw("Fire2") == 0 && tToNextShot <= 0)
+        {
+            tToNextShot = fireDelay;
+            switch (level)
+            {
+                case ForceBallLevel.Level1:
+                    Vector3 rot1, rot2;
+                    rot1 = rot2 = Vector3.zero;
+                    rot1.x = rot2.x = 90;
+                    rot1.z += 20;
+                    rot2.z += -20;
+                    GameObject shot1 = Instantiate(forceShot, me.position, Quaternion.Euler(rot1));
+                    GameObject shot2 = Instantiate(forceShot, me.position, Quaternion.Euler(rot2));
+                    break;
+                case ForceBallLevel.Level2:
+                    break;
+                case ForceBallLevel.Level3:
+                    break;
+                default:
+                    break;
+            }
+        }
+        tToNextShot -= Time.deltaTime;
     }
 }
 
