@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Level1Sequence : MonoBehaviour
 {
+    public GameObject powerUp;
     public GameObject group1;
     public GameObject group2;
     public GameObject group3;
@@ -21,7 +22,7 @@ public class Level1Sequence : MonoBehaviour
         yield return new WaitForSeconds(2);
         group2.SetActive(true);
         yield return new WaitForSeconds(4);
-        //TODO: powerup
+        Instantiate(powerUp, new Vector3(0, 0, 75), powerUp.transform.rotation);
         yield return new WaitForSeconds(2);
         group3.SetActive(true);
         yield return new WaitForSeconds(2);
