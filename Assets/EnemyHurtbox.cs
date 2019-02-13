@@ -43,6 +43,17 @@ public class EnemyHurtbox : MonoBehaviour
             BulletInfo info = other.GetComponent<BulletInfo>();
             HP -= info.damage;
             if (info.destroyOnHit) Destroy(other.gameObject);
+        }else if (other.tag == "Force")
+        {
+            HP -= 100 * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Force")
+        {
+            HP -= 100 * Time.deltaTime;
         }
     }
 

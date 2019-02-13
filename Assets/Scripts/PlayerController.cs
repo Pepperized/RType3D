@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     {
         chargeMeter.value = charge / chargeMax;
 
-        if (Input.GetAxisRaw("Fire2") > 0)
+        if (Input.GetAxisRaw("Fire2") > 0 && Input.GetAxisRaw("Fire1") <= 0)
         {
             chargingEffect.SetActive(true);
             if (charge == 0) chargingSFX.Play();

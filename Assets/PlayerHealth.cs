@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int collisionLayer = 10;
     public GameObject destroyEffect;
     public AudioSource destroySFX;
+    public GameObject forceBallObj;
 
     private Transform children;
     private CapsuleCollider collider;
@@ -46,7 +47,21 @@ public class PlayerHealth : MonoBehaviour
         {
             float damage = other.GetComponent<BulletInfo>().damage;
             HP -= damage;
-        } 
+        }else if (other.tag == "Force")
+        {
+            ForceBallController forceBallController = other.GetComponent<ForceBallController>();
+            bool attached = forceBallController.IsAttached;
+            if (!attached) forceBallController.IsAttached = true;
+        } else if (other.tag == "Powerup")
+        {
+            Destroy(other.gameObject);
+            ForceBallController fbc = FindObjectOfType<ForceBallController>();
+            if (fbc == null)
+            {
+                GameObject go = Instantiate(forceBallObj);
+
+            }
+        }
     }
 
     void OnDeath()

@@ -6,6 +6,8 @@ public class Level1Sequence : MonoBehaviour
 {
     public GameObject group1;
     public GameObject group2;
+    public GameObject group3;
+    public GameObject group4;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +20,12 @@ public class Level1Sequence : MonoBehaviour
         group1.SetActive(true);
         yield return new WaitForSeconds(2);
         group2.SetActive(true);
-        yield return new WaitForSeconds(5);
-        SceneManagerScript.instance.PlayerPerspective = PlayerPerspective.FromBehind;
+        yield return new WaitForSeconds(4);
+        //TODO: powerup
+        yield return new WaitForSeconds(2);
+        group3.SetActive(true);
+        yield return new WaitForSeconds(2);
+        group4.SetActive(true);
 
     }
 }
