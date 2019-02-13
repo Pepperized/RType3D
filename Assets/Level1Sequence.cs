@@ -21,12 +21,15 @@ public class Level1Sequence : MonoBehaviour
         group1.SetActive(true);
         yield return new WaitForSeconds(2);
         group2.SetActive(true);
-        yield return new WaitForSeconds(4);
-        Instantiate(powerUp, new Vector3(0, 0, 75), powerUp.transform.rotation);
         yield return new WaitForSeconds(2);
+        Instantiate(powerUp, new Vector3(0, 0, 75), powerUp.transform.rotation);
+        yield return new WaitForSeconds(4);
         group3.SetActive(true);
         yield return new WaitForSeconds(2);
         group4.SetActive(true);
-
+        yield return new WaitForSeconds(2);
+        Instantiate(powerUp, new Vector3(0, 0, 75), powerUp.transform.rotation);
+        yield return new WaitForSeconds(1);
+        Instantiate(powerUp, new Vector3(0, 0, 75), powerUp.transform.rotation);
     }
 }

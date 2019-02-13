@@ -6,8 +6,13 @@ public class ForceBallController : MonoBehaviour
 {
     public float speed = 5;
 
+    GameObject level1parts;
+    GameObject level2parts;
+    GameObject level3parts;
+
     bool isAttached = false;
     bool isRequested = true;
+    ForceBallLevel level = ForceBallLevel.Level1;
 
     public bool IsAttached
     {
@@ -30,6 +35,33 @@ public class ForceBallController : MonoBehaviour
         }
     }
 
+    public ForceBallLevel Level
+    {
+        get { return level; }
+        set { level = value;
+            switch (level)
+            {
+                case ForceBallLevel.Level1:
+                    level1parts.SetActive(true);
+                    level2parts.SetActive(false);
+                    level3parts.SetActive(false);
+                    break;
+                case ForceBallLevel.Level2:
+                    level1parts.SetActive(false);
+                    level2parts.SetActive(true);
+                    level3parts.SetActive(false);
+                    break;
+                case ForceBallLevel.Level3:
+                    level1parts.SetActive(false);
+                    level2parts.SetActive(false);
+                    level3parts.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     private Transform me;
     private Transform player;
 
@@ -38,6 +70,9 @@ public class ForceBallController : MonoBehaviour
     {
         me = transform;
         player = FindObjectOfType<PlayerController>().transform;
+        level1parts = me.Find("Level1").gameObject;
+        level2parts = me.Find("Level2").gameObject;
+        level3parts = me.Find("Level3").gameObject;
     }
 
     // Update is called once per frame
@@ -53,4 +88,11 @@ public class ForceBallController : MonoBehaviour
             }
         }
     }
+}
+
+public enum ForceBallLevel
+{
+    Level1,
+    Level2,
+    Level3
 }

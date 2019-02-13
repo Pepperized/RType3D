@@ -60,6 +60,22 @@ public class PlayerHealth : MonoBehaviour
             {
                 GameObject go = Instantiate(forceBallObj);
 
+            } else
+            {
+                switch (fbc.Level)
+                {
+                    case ForceBallLevel.Level1:
+                        fbc.Level = ForceBallLevel.Level2;
+                        break;
+                    case ForceBallLevel.Level2:
+                        fbc.Level = ForceBallLevel.Level3;
+                        break;
+                    case ForceBallLevel.Level3:
+                        fbc.Level = ForceBallLevel.Level3;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
