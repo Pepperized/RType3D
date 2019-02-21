@@ -7,6 +7,8 @@ public class SceneManagerScript : MonoBehaviour
 {
     public static SceneManagerScript instance;
 
+    public bool perspOverride = false;
+
     public float SkyboxRotation;
     public PlayerPerspective startPerspective;
 
@@ -34,6 +36,14 @@ public class SceneManagerScript : MonoBehaviour
             {
                 OnPerspectiveChanged();
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (perspOverride)
+        {
+            PlayerPerspective = startPerspective;
         }
     }
 
